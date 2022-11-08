@@ -48,9 +48,9 @@ export default function SignIn() {
     return (
         <div>
             <section className="h-screen">
-                <div className=" flex flex-wrap justify-between my-10">
+                <div className=" flex flex-wrap py-4 justify-between">
                     <div className="flex flex-row hover:scale-105 transition delay-800 duration-300 ease-in-out cursor-pointer">
-                        <a href='http://localhost:3000'>
+                        <a href='http://localhost:3000/Home'>
                             <img src={logo_gf} className="ml-4 h-24 animate__animated animate__fadeInDown" alt="Logo da game finders" />
                         </a>
                         <div className="flex title flex-col justify-center items-center text-white font-bold animate__animated animate__fadeInDown">

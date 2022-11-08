@@ -1,15 +1,21 @@
 *{
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
-
 body {
-  background: linear-gradient(0deg, rgba(98, 1, 83, 0.97) 9.62%, rgba(65, 2, 54, 0.87) 37.06%, rgba(2, 38, 88, 0.94) 82.8%);
+  background: url('./assets//background.png');
+  backdrop-filter: blur(4px);
   background-attachment: fixed;
 }
+
 .title {
   font-family: 'Baloo Tammudu 2';
 }
 .subtitle {
   font-family: 'Acme';
+}
+
+html {
+  scroll-behavior: smooth;
 }
