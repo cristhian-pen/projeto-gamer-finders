@@ -1,29 +1,12 @@
-import React,{useState} from "react";
+import React from "react";
 import Fade from 'react-reveal/Fade';
-import Lottie from 'react-lottie';
 
-import animationData from '../../assets/18559-arrow-up.json';
 import Depositions from "../Depositions";
 import Gallery from '../Carousel/index';
 import Head from "../Head/index.";
 import Footer from "../Footer";
-import BtnScroll from "../ButtonScroll";
-
 
 export default function Home() {
-    const [isLiked, setIsliked] = useState(false);
-    const [animationState, setAnimationState] = useState({
-        isStopped: true, isPaused: false,
-        direction: -1,
-    });
-
-    const defaultOptions = {
-        loop: false,
-        animationData: animationData,
-        redererSettings: {
-            preserveAspectRatio: 'xMidYMid slice'
-        }
-    }
     return (
         <div className="opacity-100 z-10 headline">
             <Head />
@@ -33,12 +16,14 @@ export default function Home() {
                         <p>DESCUBRA NOVOS</p>
                         <p>JOGADORES</p>
                     </div>
-                    <button
-                        type="button"
-                        className="w-auto inline-block rounded-xl px-7 subtitle py-3 bg-white font-medium text-lg leading-snug uppercase rounded shadow-md hover:bg-slate-400 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:third-color active:shadow-lg transition duration-150 ease-in-out"
-                    >
-                        <p>Encontre seu duo</p>
-                    </button>
+                    <a href="http://localhost:3000/app">
+                        <button
+                            type="button"
+                            className="w-auto inline-block rounded-xl px-7 subtitle py-3 bg-white font-medium text-lg leading-snug uppercase rounded shadow-md hover:bg-slate-400 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:third-color active:shadow-lg transition duration-150 ease-in-out"
+                        >
+                            <p>Encontre seu duo</p>
+                        </button>
+                    </a>
                 </section>
             </Fade>
             <section className="flex z-50 headline shadow-2xl h-auto justify-center items-center flex-col rounded-t-3xl bg-white flex-col">

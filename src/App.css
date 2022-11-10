@@ -19,3 +19,8 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+.margin {
+  margin-top: -8rem;
+  z-index: 5;
+}
