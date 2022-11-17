@@ -3,6 +3,7 @@ import { FaUserNinja } from 'react-icons/fa';
 
 import 'animate.css';
 import logo_gf from '../../assets/logo_gf.png';
+import data from '../../access.json';
 
 export default function Head() {
     return (
@@ -54,7 +55,7 @@ export default function Head() {
                     <div className="bg-white justify-center items-center flex rounded-full border-2 w-10 h-10 mb-2">
                         <FaUserNinja color="gray" />
                     </div>
-                    <p className="text-lg title text-white">Ola, User!</p>
+                    <p className="text-lg title text-white">Ola, {data.infos.username}!</p>
                 </div>
             </a>
             <div></div>

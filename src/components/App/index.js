@@ -5,6 +5,7 @@ import 'animate.css';
 import Fade from 'react-reveal';
 import Footer from '../Footer';
 import Head from '../Head/index.';
+import data from '../../access.json';
 
 export default function App() {
     return (
@@ -14,7 +15,7 @@ export default function App() {
             </Fade>
             <Fade>
                 <section className=' flex items-center justify-center py-10 '>
-                    <a className='flex items-center'>
+                    <a className='flex items-center' href={() => false}>
                         <div className='flex bg-white shadow-2xl justify-end animate__animated animate__fadeInDown cursor-pointer border-2 items-end h-72 w-72 rounded-full'>
                             <FaUserNinja id='default' color='gray' className='mb-20 pl-16 h-fit w-52' />
                             <div id='jocker' className='mr-8 w-10 h-10'></div>
@@ -28,32 +29,32 @@ export default function App() {
             <section className="flex shadow-2xl h-auto justify-center margin items-center flex-col rounded-t-3xl bg-white flex-col">
                 <Fade bottom>
                     <div id="nickname" className="py-28 text-center">
-                        <p className='title text-7xl'>Advogay</p>
+                        <p className='title text-7xl'>{data.user2.username}</p>
                         <div className='text-slate flex-row justify-center flex title text-md text-center'>
-                            <p>@Advogay</p><p>#1453</p>
+                            <p>@{data.user2.username}</p><p>#{data.user2.id}</p>
                         </div>
                         <div className='flex my-8 justify-around'>
                             <ul>
                                 <li className='title text-center underline decoration-1 mb-0.5 text-md'>Meu nivel</li>
-                                <li className='title text-center text-sm'>Nivel 84</li>
+                                <li className='title text-center text-sm'>{data.user2.nivel}</li>
                                 <ul className='my-8'>
                                     <li className='title text-center underline decoration-1 mb-0.5 text-md'>Personagem</li>
-                                    <li className='title text-center text-sm'>Breach espanca bomb</li>
+                                    <li className='title text-center text-sm'>{data.user2.personagem}</li>
                                 </ul>
                                 <ul>
                                     <li className='title text-center underline decoration-1 mb-0.5 text-md'>Classe</li>
-                                    <li className='title text-center text-sm'>Iniciador</li>
+                                    <li className='title text-center text-sm'>{data.user2.classe}</li>
                                 </ul>
                             </ul>
 
                             <ul>
                                 <li className='title text-center underline decoration-1 mb-0.5 text-md'>Meus jogos</li>
-                                <li className='title text-center text-sm'>Valorant</li>
-                                <li className='title text-center text-sm'>Csgo</li>
-                                <li className='title text-center text-sm'>warzone</li>
-                                <li className='title text-center text-sm'>Fortnite</li>
-                                <li className='title text-center text-sm'>League of Legends</li>
-                                <li className='title text-center text-sm'>Overwatch</li>
+                                <li className='title text-center text-sm'>{data.jogos.Jogo1}</li>
+                                <li className='title text-center text-sm'>{data.jogos.Jogo1}</li>
+                                <li className='title text-center text-sm'>{data.jogos.Jogo1}</li>
+                                <li className='title text-center text-sm'>{data.jogos.Jogo1}</li>
+                                <li className='title text-center text-sm'>{data.jogos.Jogo1}</li>
+                                <li className='title text-center text-sm'>{data.jogos.Jogo1}</li>
                             </ul>
                         </div>
                         <div className='flex flex-row'>

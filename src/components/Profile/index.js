@@ -1,11 +1,12 @@
 import React from 'react';
-import { FaPencilAlt, FaUserNinja } from 'react-icons/fa';
+import { FaUserNinja } from 'react-icons/fa';
 
 import 'animate.css';
 import Fade from 'react-reveal';
 import Footer from '../Footer';
 import Head from '../Head/index.';
 import Inputs from '../Inputs';
+import data from '../../access.json';
 
 export default function Profile() {
 
@@ -41,34 +42,34 @@ export default function Profile() {
             </Fade>
             <section className="flex shadow-2xl h-auto justify-center margin items-center flex-col rounded-t-3xl bg-white flex-col">
                 <Fade bottom>
-                    
-                    <div id="information" className="py-28 text-center">
-                        <p className='title text-7xl'>IrooNC</p>
+                    <Inputs />
+                    <div id="information" className="py-28 hidden  text-center">
+                        <p className='title text-7xl'>{data.infos.username}</p>
                         <div className='text-slate flex-row justify-center flex title text-md text-center'>
-                            <p>@IrooNC</p><p>#123</p>
+                            <p>@{data.infos.username}</p><p>#{data.infos.id}</p>
                         </div>
                         <div className='flex my-8 justify-around'>
                             <ul>
                                 <li className='title text-center underline decoration-1 mb-0.5 text-md'>Meu nivel</li>
-                                <li className='title text-center text-sm'>Nivel 84</li>
+                                <li className='title text-center text-sm'>{data.infos.nivel}</li>
                                 <ul className='my-8'>
                                     <li className='title text-center underline decoration-1 mb-0.5 text-md'>Personagem</li>
-                                    <li className='title text-center text-sm'>Breach espanca bomb</li>
+                                    <li className='title text-center text-sm'>{data.infos.personagem}</li>
                                 </ul>
                                 <ul>
                                     <li className='title text-center underline decoration-1 mb-0.5 text-md'>Classe</li>
-                                    <li className='title text-center text-sm'>Iniciador</li>
+                                    <li className='title text-center text-sm'>{data.infos.classe}</li>
                                 </ul>
                             </ul>
 
                             <ul>
                                 <li className='title text-center underline decoration-1 mb-0.5 text-md'>Meus jogos</li>
-                                <li className='title text-center text-sm'>Valorant</li>
-                                <li className='title text-center text-sm'>Csgo</li>
-                                <li className='title text-center text-sm'>warzone</li>
-                                <li className='title text-center text-sm'>Fortnite</li>
-                                <li className='title text-center text-sm'>League of Legends</li>
-                                <li className='title text-center text-sm'>Overwatch</li>
+                                <li className='title text-center text-sm'>{data.jogos.Jogo1}</li>
+                                <li className='title text-center text-sm'>{data.jogos.Jogo2}</li>
+                                <li className='title text-center text-sm'>{data.jogos.Jogo3}</li>
+                                <li className='title text-center text-sm'>{data.jogos.Jogo4}</li>
+                                <li className='title text-center text-sm'>{data.jogos.Jogo5}</li>
+                                <li className='title text-center text-sm'>{data.jogos.Jogo6}</li>
                             </ul>
                         </div>
                         <div id='buttons' className='flex flex-row'>

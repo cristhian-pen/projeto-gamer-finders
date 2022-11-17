@@ -1,0 +1,26 @@
+{
+    "infos": {
+        "id": "1234",
+        "username":"thales",
+        "password":"teste",
+        "nivel":"84",
+        "personagem":"Breach espanca bomb",
+        "classe":"iniciador"
+    },
+    "user2": {
+        "id": "12345",
+        "username":"GabrielCordeiro",
+        "password":"teste",
+        "nivel":"96",
+        "personagem":"Sage cansada",
+        "classe":"suporte"
+    },
+    "jogos" : {
+        "Jogo1": "Valorant",
+        "Jogo2": "csgo",
+        "Jogo3": "warzone",
+        "Jogo4": "fortnite",
+        "Jogo5": "lol",
+        "Jogo6": "overwatch"
+    }
+}

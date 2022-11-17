@@ -1,56 +1,44 @@
 import React, { useState } from 'react';
+import API from '../../services/API/index';
 
 import logo_gf from '../../assets/logo_gf.png';
 import 'animate.css';
 
+
 export default function Register() {
-    const [field1, setFiel1] = useState({
+    const [ nick, setNick] = useState({
         nickname: '',
         password: ''
     });
 
+    const [ truepass, setTrue ] = useState({
+        conpassword: ''
+    });
+
     const handleSubmit = (event) => {
-        setFiel1({
-            ...field1,
-            [event.target.name]: event.target.value
+        setNick({
+            ...nick,
+            [ event.target.name ]: event.target.value
         });
-        console.log(field1.nickname)
-        console.log(field1.password)
+        setTrue({
+            ...truepass,
+            [ event.target.name ]: event.target.name
+        });
     }
 
-    const validaDados = (event) => {
-        let err = document.getElementById('err');
-        let valid = document.getElementById('valid');
-        let alertm = document.getElementById('alertm');
-
-        if (field1.nickname === "iroon" && field1.password === "iroon") {
-            valid.classList.remove('hidden');
-            valid.classList.add('animated_tada');
-            setInterval(() => {
-                err.classList.add('hidden');
-            }, 200);
-
-        } else if (field1.nickname !== "iroon" && field1.password !== "iroon") {
-            alertm.classList.remove('hidden');
-            alertm.classList.add('animated_tada');
-            window.addEventListener('click', (handleSubmit) => {
-                alertm.classList.add('hidden');
-            })
-
-        } else {
-            err.classList.remove('hidden');
-            err.classList.add('animated_tada');
-            setInterval(() => {
-                err.classList.add('hidden');
-            }, 3000);
-        }
+    const create = () => {
+        API.post('/reg', {
+            nickname: nick.nickname,
+            password: nick.password
+        });
     }
+
     return (
         <div>
             <section className="h-screen">
                 <div className=" flex flex-wrap py-4 justify-between">
                     <div className="flex flex-row hover:scale-105 transition delay-800 duration-300 ease-in-out cursor-pointer">
-                        <a href='http://localhost:3000/Home'>
+                        <a href='/Home'>
                             <img src={logo_gf} className="ml-4 h-24 animate__animated animate__fadeInDown" alt="Logo da game finders" />
                         </a>
                         <div className="flex title flex-col justify-center items-center text-white font-bold animate__animated animate__fadeInDown">
@@ -67,7 +55,7 @@ export default function Register() {
                     className="flex flex-row xl:justify-center lg:justify-center xl:my-36"
                 >
                     <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-                        <form>
+                        <form onSubmit={create}>
                             <div>
                                 <p className="text-sm text-white font-bold mb-2 subtitle ml-2 animate__animated animate__fadeInDown">NICKNAME</p>
                             </div>
@@ -100,12 +88,11 @@ export default function Register() {
                             </div>
                             <div className="mb-3">
                                 <input
-                                    type="conpassword"
+                                    type="password"
                                     className="form-control animate__animated animate__fadeInLeft block w-full h-10 px-4 text-sm font-normal text-gray-700 bg-white bg-clip-padding border-2 border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                    id="password"
+                                    id="conpassword"
                                     placeholder="CONFIRM PASSWORD"
                                     name="conpassword"
-                                    onChange={handleSubmit}
                                 />
                             </div>
                             <div className="flex items-center justify-center">
