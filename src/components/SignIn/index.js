@@ -1,50 +1,30 @@
 import React, { useState } from 'react';
 
 import logo_gf from '../../assets/logo_gf.png';
+import API from '../../services/API/index';
 import 'animate.css';
 
 export default function SignIn() {
-    const [field1, setFiel1] = useState({
+    const [field, setFiel1] = useState({
         nickname: '',
         password: ''
     });
 
     const handleSubmit = (event) => {
         setFiel1({
-            ...field1,
+            ...field,
             [event.target.name]: event.target.value
         });
-        console.log(field1.nickname)
-        console.log(field1.password)
+    }
+    console.log(field.nickname);
+
+    const login = () => {
+        API.get('/login', {
+            nickname: field.nickname,
+            password: field.password
+        });
     }
 
-    const validaDados = (event) => {
-        let err = document.getElementById('err');
-        let valid = document.getElementById('valid');
-        let alertm = document.getElementById('alertm');
-
-        if (field1.nickname === "iroon" && field1.password === "iroon") {
-            valid.classList.remove('hidden');
-            valid.classList.add('animated_tada');
-            setInterval(() => {
-                err.classList.add('hidden');
-            }, 200);
-
-        } else if (field1.nickname !== "iroon" && field1.password !== "iroon") {
-            alertm.classList.remove('hidden');
-            alertm.classList.add('animated_tada');
-            window.addEventListener('click', (handleSubmit) => {
-                alertm.classList.add('hidden');
-            })
-
-        } else {
-            err.classList.remove('hidden');
-            err.classList.add('animated_tada');
-            setInterval(() => {
-                err.classList.add('hidden');
-            }, 3000);
-        }
-    }
     return (
         <div>
             <section className="h-screen">
@@ -65,29 +45,11 @@ export default function SignIn() {
                 </div>
                 <div className="px-6 text-gray-800 lg:justify-center">
 
-                    <div id='valid' className='flex justify-center animate__animated items-center hidden'>
-                        <div className='text-white valid mb-8 text-3xl font-bold title '>
-                            <p>YOU ARE LOGGED!!!</p>
-                        </div>
-                    </div>
-
-                    <div id='err' className='flex justify-center animate__animated items-center hidden'>
-                        <div className='text-white err text-3xl mb-8 font-bold title '>
-                            <p>INCORRECT NICKNAME OR PASSWORD!</p>
-                        </div>
-                    </div>
-
-                    <div id='alertm' className='flex justify-center animate__animated items-center hidden'>
-                        <div className=' text-white alertm text-3xl mb-8  font-bold title '>
-                            <p>PLEASE, FILL IN ALL FIELDS</p>
-                        </div>
-                    </div>
-
                     <div
                         className="flex flex-row xl:justify-center lg:justify-center xl:my-36"
                     >
                         <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-                            <form>
+                            <form onSubmit={login}>
                                 <div>
                                     <p className="text-sm text-white font-bold mb-2 subtitle ml-2 animate__animated animate__fadeInDown">NICKNAME</p>
                                 </div>
@@ -123,16 +85,15 @@ export default function SignIn() {
                                             className="form-check-input ml-8 accent-gray-700 animate__animated animate__fadeInDown h-4 w-4 border-2 bg-white border-gray-300 rounded-sm checked:border-gray-700 focus:outline-none transition duration-300 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                                             id="REMEMBERME"
                                         />
-                                        <label className="form-check-label subtitle animate__animated animate__fadeInDown inline-block text-white" for="rememberme"> Remember   me </label>
+                                        <label className="form-check-label subtitle animate__animated animate__fadeInDown inline-block text-white"> Remember   me </label>
                                     </div>
                                 </div>
 
                                 <div className="flex-col my-10 items-stretch justify-center text-center ">
                                     <div className="flex-1 my-8 justify-center items-center">
                                         <button
-                                            type="button"
+                                            type="submit"
                                             className=" w-4/6 subtitle animate__animated animate__fadeInLeft inline-block third-color px-7 py-3 bg-third-color text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-fourth-color hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:third-color active:shadow-lg transition duration-150 ease-in-out"
-                                            onClick={validaDados}
                                         >
                                             Login
                                         </button>
@@ -150,7 +111,7 @@ export default function SignIn() {
                                         onClick={function redirect() {
                                             window.location.assign('/register');
                                         }
-                                    }
+                                        }
                                     >
                                         Create account
                                     </button>

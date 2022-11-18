@@ -25,6 +25,7 @@ export default function Register() {
             [ event.target.name ]: event.target.name
         });
     }
+    console.log(nick.nickname, nick.password);
 
     const create = () => {
         API.post('/reg', {
